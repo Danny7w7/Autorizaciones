@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autorizaciones Verificadas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <div class="text-center">
+          <div class="icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+          </div>
+        </div>
+        
+        <h3 class="form-title">Autorizaciones</h3>
+        <p class="form-subtitle">Sistema de Registro y Control</p>
+        
+        <form id="registroForm" method="POST" action="/addAuthorization/">
+          <div class="mb-4">
+            <label for="hora" class="form-label">📅 Fecha y Hora</label>
+            <input type="datetime-local" class="form-control" id="hora" name="hora" readonly/>
+          </div>
+
+          <div class="mb-4">
+            <label for="autorizacion" class="form-label">🔑 Autorización</label>
+            <div class="input-group-icon">
+              <input type="text" class="form-control" id="autorizacion" name="autorizacion" placeholder="Ingrese el número de autorización"/>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            ✓ Registrar Autorización
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="{{ url_for('static', filename='js/scrips.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+  </body>
+</html>

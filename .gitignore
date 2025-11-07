@@ -1,0 +1,29 @@
+# Entorno virtual
+venv/
+env/
+*.pyc
+__pycache__/
+instance/
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+dist/
+build/
+
+# Archivos de configuración y variables de entorno
+.env
+.env.*
+*.db
+
+# Archivos temporales y logs
+*.log
+*.pot
+*.mo
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# Migraciones (si usas Flask-Migrate/Alembic)
+migrations/
