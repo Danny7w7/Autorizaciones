@@ -21,16 +21,16 @@ form.addEventListener("submit", function (event) {
 });
 
 function submitForm() {
-  const autorizacion = document.getElementById("autorizacion").value;
-  console.log(autorizacion);
+  const autorizacion = document.getElementById("autorizacion");
+  const autorizacionValue = autorizacion.value;
 
-  if (autorizacion) {
+  if (autorizacionValue) {
     fetch("/addAuthorization/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ autorizacion }),
+      body: JSON.stringify({ 'autorizacion':autorizacionValue }),
     })
       .then(async (response) => {
         const data = await response.json();
@@ -46,6 +46,9 @@ function submitForm() {
           text: "Autorizacion correctamente agregada",
           icon: "success",
         });
+
+        autorizacion.value = ''        
+
       })
       .catch((error) => {
         Swal.fire({
