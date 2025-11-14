@@ -59,10 +59,15 @@ def migrate():
     for fila in hoja.iter_rows(values_only=True):
         created_at = fila[0]
         code = fila[1]
-        if created_at:
-            dateNew = created_at
-            print(dateNew)
         
-        new = Authorization(code=code, created_at=dateNew)
-        db.session.add(new)
-        db.session.commit()
+        existAuthorization = Authorization.query.filter_by(code=code).first()
+        if existAuthorization:
+            print('Este man no existe')
+        else:
+            if created_at:
+                dateNew = created_at
+                print(dateNew)
+            
+            new = Authorization(code=code, created_at=dateNew)
+            db.session.add(new)
+            db.session.commit()
